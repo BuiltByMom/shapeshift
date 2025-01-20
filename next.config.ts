@@ -4,9 +4,10 @@ const withNextIntl = createNextIntlPlugin('./i18n/requests.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	/* config options here */
 	reactStrictMode: true,
 	env: {
+		NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? '',
+		NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET ?? '',
 		WALLETCONNECT_PROJECT_ID: process.env.WALLETCONNECT_PROJECT_ID ?? ''
 	},
 	async headers() {
