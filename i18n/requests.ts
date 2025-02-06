@@ -1,13 +1,15 @@
 import {getRequestConfig} from 'next-intl/server';
 
-export default getRequestConfig(async () => {
-	/**********************************************************************************************
-	 ** To add language support, add a new locale to the locales array in next.config.js
-	 ** Then add a new file in the locales folder with the language code as the filename
-	 ** Then add the messages to the new file
-	 ** Change the locale const to some state in the app to allow for dynamic language support.
-	 **********************************************************************************************/
-	const locale = 'en';
+import {routing} from './routing';
+
+export default getRequestConfig(async ({requestLocale}) => {
+	// This typically corresponds to the `[locale]` segment
+	let locale = await requestLocale;
+
+	// Ensure that a valid locale is used
+	if (!locale || !routing.locales.includes(locale as any)) {
+		locale = routing.defaultLocale;
+	}
 
 	return {
 		locale,

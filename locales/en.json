@@ -1,5 +1,7 @@
 {
-	"SomePage": {
-		"first_translation": "First translation"
+	"main": {
+		"first_translation": "First translation",
+		"explore_features": "Explore our features.",
+		"your_multichain_crypto_home_base": "Your multichain crypto home base."
 	}
 }

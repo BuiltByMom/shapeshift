@@ -17,7 +17,7 @@ export default async function RootLayout({children}: {children: ReactNode}): Pro
 			<body className={'relative min-h-screen overflow-x-hidden bg-bg text-white'}>
 				<WithFonts>
 					<NextIntlClientProvider messages={messages}>
-						<LayoutClient>{children}</LayoutClient>
+						<LayoutClient params={{locale}}>{children}</LayoutClient>
 					</NextIntlClientProvider>
 				</WithFonts>
 			</body>

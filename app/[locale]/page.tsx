@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import {useTranslations} from 'next-intl';
 import {useMemo} from 'react';
 
 import {BlogPost} from '@/components/BlogPost';
@@ -10,7 +11,6 @@ import {Button} from '@/components/common/Button';
 import {ShapeshiftLogo} from '@/components/common/icons/ShapeshiftLogo';
 import {TabItem} from '@/components/common/TabItem';
 import {landingCards} from '@/components/constants';
-import {Header} from '@/components/header/Header';
 import {LandingCard} from '@/components/LandingCard';
 import {QuestionSection} from '@/components/QuestionSection';
 import CardsRow from '@/components/strapi-sections/cards-row/CardsRow';
@@ -24,6 +24,7 @@ import type {ReactNode} from 'react';
 export default function HomePage(): ReactNode {
 	const {posts} = usePosts();
 	const {data} = useFaq();
+	const t = useTranslations('main');
 
 	const allQuestions = useMemo(() => {
 		const questions: TFaqSectionItem[] = [];
@@ -50,10 +51,7 @@ export default function HomePage(): ReactNode {
 					<div className={'flex h-full max-w-[800px] flex-col justify-between'}>
 						<ShapeshiftLogo />
 						<div className={'flex flex-col gap-6'}>
-							<h1 className={'text-7xl text-white'}>
-								{'Your multichain '}
-								{'crypto home base.'}
-							</h1>
+							<h1 className={'text-7xl text-white'}>{t('your_multichain_crypto_home_base')}</h1>
 
 							<p className={'text-xl text-white'}>
 								{
@@ -73,9 +71,9 @@ export default function HomePage(): ReactNode {
 					</div>
 				</div>
 			</div>
-			<div className={'sticky top-4 z-50 w-full rounded-2xl'}>
+			{/* <div className={'sticky top-4 z-50 w-full rounded-2xl'}>
 				<Header className={'!static'} />
-			</div>
+			</div> */}
 
 			<div className={'container'}>
 				<div className={'mb-14 mt-40 flex flex-col'}>
@@ -86,7 +84,7 @@ export default function HomePage(): ReactNode {
 				<CardsRow data={landingCards}>{(card: TCard) => <LandingCard data={card} />}</CardsRow>
 
 				<div className={'mb-[240px]'}>
-					<h1 className={'mb-14 text-7xl text-white'}>{'Explore our features.'}</h1>
+					<h1 className={'mb-14 text-7xl text-white'}>{t('explore_features')}</h1>
 					<div className={'group relative h-[674px] overflow-hidden rounded-2xl'}>
 						<Image
 							src={'/landing/landingTabsBg.png'}
