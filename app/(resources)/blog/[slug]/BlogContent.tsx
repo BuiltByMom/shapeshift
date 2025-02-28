@@ -212,6 +212,98 @@ export function BlogContent({content}: {content: string}): ReactNode {
 						margin-top: 20px;
 						margin-bottom: 20px;
 					}
+
+					/* HTML Style */
+
+					.blog-content h1 {
+						font-size: 40px;
+						line-height: 52px;
+					}
+
+					.blog-content p,
+					.blog-content {
+						font-size: 16px;
+						line-height: 28px;
+					}
+
+					.blog-content h3,
+					.blog-content h4 {
+						font-size: 32px;
+						line-height: 40px;
+					}
+
+					.blog-content h2,
+					.blog-content h5,
+					.blog-content h6 {
+						font-size: 24px;
+						line-height: 36px;
+					}
+
+					.blog-content strong,
+					.blog-content b {
+						font-weight: 700;
+					}
+
+					.blog-content a {
+						color: #386ff9;
+						transition: text-decoration 0.2s ease;
+					}
+
+					.blog-content a:hover {
+						text-decoration: underline;
+					}
+
+					/* Figure styles */
+					.blog-content figure {
+						margin: 2rem auto;
+						width: 100%;
+						max-width: 800px; /* Adjust this value as needed */
+					}
+
+					.blog-content figure div {
+						width: 100%;
+					}
+
+					.blog-content figure img {
+						max-width: 100%;
+						height: auto;
+						margin: 0 auto;
+						display: block;
+					}
+
+					/* Video container styles */
+					.blog-content figure.w-richtext-figure-type-video {
+						position: relative;
+						width: 100%;
+						max-width: 800px; /* Match figure max-width */
+						margin: 2rem auto;
+						aspect-ratio: 16/9;
+					}
+
+					.blog-content figure.w-richtext-figure-type-video > div {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+					.blog-content figure.w-richtext-figure-type-video iframe {
+						width: 100%;
+						height: 100%;
+						border: none;
+					}
+
+					/* Alignment styles */
+					.blog-content .w-richtext-align-fullwidth {
+						max-width: 100%;
+					}
+
+					.blog-content .w-richtext-align-center {
+						margin-left: auto;
+						margin-right: auto;
+						text-align: center;
+					}
 				`}
 			</style>
 		</div>
