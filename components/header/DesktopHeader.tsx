@@ -120,21 +120,23 @@ export function DesktopHeader({className, switchLanguage, currentLanguage}: TDes
 						</div>
 					</div>
 				</div>
-				<motion.div
-					className={cl(
-						'absolute top-full bg-bg',
-						'rounded-b-lg border-x border-b border-white/5',
-						'flex justify-center w-full',
-						tabContent[currentTab] ? 'opacity-1' : '!opacity-0'
-					)}
-					initial={containerAnimation.initial}
-					animate={containerAnimation.animate(true)}
-					exit={containerAnimation.exit}
-					transition={containerAnimation.transition}>
-					<div className={'bg-headerBg'}>
-						<AnimateChangeInHeight>{tabContent[currentTab]}</AnimateChangeInHeight>
-					</div>
-				</motion.div>
+				{currentTab && (
+					<motion.div
+						className={cl(
+							'absolute top-full bg-bg',
+							'rounded-b-lg border-x border-b border-white/5',
+							'flex justify-center w-full',
+							tabContent[currentTab] ? 'opacity-1' : '!opacity-0'
+						)}
+						initial={containerAnimation.initial}
+						animate={containerAnimation.animate(true)}
+						exit={containerAnimation.exit}
+						transition={containerAnimation.transition}>
+						<div className={'bg-headerBg'}>
+							<AnimateChangeInHeight>{tabContent[currentTab]}</AnimateChangeInHeight>
+						</div>
+					</motion.div>
+				)}
 			</div>
 		</div>
 	);
