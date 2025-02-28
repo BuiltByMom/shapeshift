@@ -27,17 +27,17 @@ export function BlogPost({post, className}: {post: TBlogPost; className?: string
 				'rounded-2xl p-6 transition-all bg-secondBg duration-300 hover:scale-[1.02] hover:bg-secondHoverBg',
 				className
 			)}>
-			<div className={'h-[204px] max-w-[408px] overflow-hidden rounded-2xl'}>
-				{post?.featuredImg?.url ? (
+			<div className={'relative aspect-[2/1] w-full overflow-hidden rounded-2xl'}>
+				{post?.featuredImg?.formats.small ? (
 					<Image
-						src={`${process.env.STRAPI_URL}${post?.featuredImg?.url}`}
+						src={`${process.env.STRAPI_URL}${post?.featuredImg?.formats.small.url}`}
 						alt={post.slug}
-						width={post?.featuredImg?.width ?? 0}
-						height={post?.featuredImg?.height ?? 0}
-						className={'size-full object-cover'}
+						fill
+						sizes={'(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'}
+						className={'object-cover'}
 					/>
 				) : (
-					<div className={'h-[204px] w-auto rounded-2xl bg-gray-500'} />
+					<div className={'size-full rounded-2xl bg-gray-500'} />
 				)}
 			</div>
 
